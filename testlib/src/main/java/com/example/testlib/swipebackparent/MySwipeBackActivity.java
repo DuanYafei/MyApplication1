@@ -1,4 +1,4 @@
-package com.example.changba131.myapplication.swipebackparent;
+package com.example.testlib.swipebackparent;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;

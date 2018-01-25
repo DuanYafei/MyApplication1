@@ -1,22 +1,14 @@
 package com.example.changba131.myapplication;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
-import android.widget.FrameLayout;
-
-import me.yokeyword.swipebackfragment.SwipeBackActivity;
 
 public class MainActivity extends Activity implements SlidingFinishLayout.ShowMiniPlayerListener {
     private View mContainer;

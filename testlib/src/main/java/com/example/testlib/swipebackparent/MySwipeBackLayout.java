@@ -1,4 +1,4 @@
-package com.example.changba131.myapplication.swipebackparent;
+package com.example.testlib.swipebackparent;
 
 
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.example.changba131.myapplication.R;
+import com.example.testlib.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

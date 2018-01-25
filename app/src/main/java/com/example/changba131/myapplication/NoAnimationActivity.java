@@ -1,17 +1,10 @@
 package com.example.changba131.myapplication;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.widget.ImageView;
 
-import com.example.changba131.myapplication.swipebackparent.MySwipeBackActivity;
+import com.example.testlib.swipebackparent.MySwipeBackActivity;
+
 
 public class NoAnimationActivity extends MySwipeBackActivity {
 

@@ -1,4 +1,4 @@
-package com.example.changba131.myapplication.swipebackparent;
+package com.example.testlib.swipebackparent;
 
 import android.app.Activity;
 import android.content.res.TypedArray;
@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.example.changba131.myapplication.R;
+import com.example.testlib.R;
 
 
 public abstract class MySwipeBackFragment extends Fragment {
