@@ -1,0 +1,67 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="@style/Theme.AppCompat.Light">
+        <item name="windowActionBar">false</item>
+        <!--Window color-->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <!--<item name="switchSwitchStyle">@style/Widget.Holo.CompoundButton.Switch</item>-->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="colorPrimaryDark">@color/primary_dark_material_dark</item>
+        <item name="colorPrimary">@color/primary_dark_material_dark</item>
+        <item name="android:buttonStyle">@android:style/Widget.Button</item>
+    </style>
+    <style name="activityAnimation" parent="@android:style/Animation">
+        <item name="android:activityOpenEnterAnimation">@anim/bg_slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/bg_slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/bg_slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/bg_slide_right_out</item>
+    </style>
+
+    <!-- 取消界面转场动画使用-->
+    <style name="NoAnimationTheme" parent="@style/Theme.AppCompat.Light">
+        <item name="android:windowAnimationStyle">@style/Animation1</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+        <!--<item name="switchSwitchStyle">@style/Widget.Holo.CompoundButton.Switch</item>-->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="Animation1" parent="activityAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/from_bottom_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/do_nothing_animate</item>
+        <item name="android:activityCloseEnterAnimation">@anim/no_anim</item>
+        <item name="android:activityCloseExitAnimation">@anim/no_anim</item>
+        <item name="android:taskOpenEnterAnimation">@anim/no_anim</item>
+        <item name="android:taskOpenExitAnimation">@anim/no_anim</item>
+        <item name="android:taskCloseEnterAnimation">@anim/no_anim</item>
+        <item name="android:taskCloseExitAnimation">@anim/no_anim</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/no_anim</item>
+        <item name="android:taskToFrontExitAnimation">@anim/no_anim</item>
+        <item name="android:taskToBackEnterAnimation">@anim/no_anim</item>
+        <item name="android:taskToBackExitAnimation">@anim/no_anim</item>
+    </style>
+
+    <style name="Theme.mystyles" parent="android:Theme.Light">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+        <!--<item name="switchSwitchStyle">@style/Widget.Holo.CompoundButton.Switch</item>-->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+</resources>
