@@ -1,6 +1,7 @@
 package com.example.testlib.swipebackparent;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -127,7 +128,7 @@ public class MySwipeBackLayout extends FrameLayout {
     }
 
     /**
-     * 解决滑动过程中由于页面Layout导致返回原位置，在滑动结束重新布局显示
+     * 解决滑动过程中由于页面Layout导致返回原位置，在滑动结束重新Layout显示
      */
     private void reLayout() {
         setLayoutParams(new LayoutParams(
@@ -494,6 +495,7 @@ public class MySwipeBackLayout extends FrameLayout {
         return mHelper.shouldInterceptTouchEvent(ev);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (!mEnable) {
