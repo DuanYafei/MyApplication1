@@ -1,1 +1,27 @@
+*.iml
+.idea
+.DS_Store
 /build
+/captures
+.externalNativeBuild
+
+bin/
+gen/
+out/
+captures/
+./settings/*
+.factorypath
+
+proguard_logs/
+output/
+# Gradle files
+.gradle/
+build/
+
+*.properties
+
+# Log Files
+*.log
+/.apt_generated
+/:.tgitconfig
+captures/
