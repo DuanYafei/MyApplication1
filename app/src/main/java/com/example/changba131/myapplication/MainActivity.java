@@ -1,80 +1,51 @@
 package com.example.changba131.myapplication;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class MainActivity extends Activity implements SlidingFinishLayout.ShowMiniPlayerListener {
-    private View mContainer;
+import com.example.changba131.myapplication.widget.KtvChallengeProgressBar;
+
+public class MainActivity extends Activity {
+    private KtvChallengeProgressBar mProgressBar;
+    private EditText mEditText;
+    private TextView mOkBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        FrameLayout frameLayout = new FrameLayout(this);
-//        ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-//        frameLayout.setLayoutParams(layoutParams);
         setContentView(R.layout.activity_main);
-//        ViewPager viewPager = new ViewPager(this);
-//        viewPager.setLayoutParams(layoutParams);
-//        frameLayout.addView(viewPager);
-//        MyAdapter myAdapter = new MyAdapter();
-//        String[] str = {"1","2","3","4","5","6","7","8"};
-//        myAdapter.setData(str);
-//        viewPager.setAdapter(myAdapter);
-//        viewPager.setCurrentItem(0);
-        initNoAnimationButton();
-        ShowMiniManager.setShowMiniPlayerListener(this);
+        mProgressBar = findViewById(R.id.progressbar);
+        mEditText = findViewById(R.id.edit_text);
+        mOkBtn = findViewById(R.id.btn_ok);
+        init();
     }
 
-    private void initNoAnimationButton() {
-        mContainer = findViewById(R.id.mini_player);
-        mContainer.setOnClickListener(new View.OnClickListener() {
+    private void init() {
+        mOkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NoAnimationActivity.class);
-                startActivity(intent);
+                try {
+                    mProgressBar.setProgress(Integer.valueOf(mEditText.getText().toString()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        findViewById(R.id.btn_pk).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mProgressBar.setMode(KtvChallengeProgressBar.MODE_PK);
+            }
+        });
+        findViewById(R.id.btn_normal).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mProgressBar.setMode(KtvChallengeProgressBar.MODE_NORMAL);
             }
         });
     }
-
-
-    @Override
-    public void showMiniPlayer() {
-        startAnimation(true);
-    }
-
-    @Override
-    public void closeMiniPlayer() {
-
-    }
-
-
-    private void startAnimation(boolean flag) {
-        final int height = 135;
-        if (flag) {
-            Log.e("YYYYY:", mContainer.getTranslationY() + "");
-            ObjectAnimator animatorT = ObjectAnimator.ofFloat(mContainer, "translationY", -2 * height, 0);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.setDuration(100);
-            animatorSet.setInterpolator(new LinearInterpolator());
-//            animatorSet.addListener(new AnimatorListenerAdapter() {
-//                @Override
-//                public void onAnimationEnd(Animator animation) {
-//                    super.onAnimationEnd(animation);
-//                }
-//
-//            });
-            animatorSet.play(animatorT);
-            animatorSet.start();
-        } else {
-//            mParent.setPadding(0, 0, 0, height);
-        }
-    }
-
 }

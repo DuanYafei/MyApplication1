@@ -6,21 +6,67 @@
     android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
+    <com.example.changba131.myapplication.widget.KtvChallengeProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true" />
+
     <TextView
-        android:id="@+id/btn_no_ani_act"
+        android:id="@+id/btn_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/edit_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="NoAnimationAct"
+        android:text="OK"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <View
-        android:id="@+id/mini_player"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent" />
+    <TextView
+        android:id="@+id/btn_pk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_ok"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="切换pk"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/btn_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_ok"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/btn_pk"
+        android:gravity="center"
+        android:text="切换正常"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <SeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/btn_pk"
+        android:layout_margin="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seek_bar"
+        android:layout_centerHorizontal="true"
+        android:text="10"
+        android:textColor="#000000"
+        android:textSize="16sp" />
 
 </RelativeLayout>
