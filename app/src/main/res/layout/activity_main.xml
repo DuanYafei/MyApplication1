@@ -51,7 +51,8 @@
         android:layout_toEndOf="@id/btn_pk"
         android:gravity="center"
         android:text="切换正常"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
 
     <SeekBar
         android:id="@+id/seek_bar"
@@ -68,5 +69,12 @@
         android:text="10"
         android:textColor="#000000"
         android:textSize="16sp" />
+
+    <com.example.changba131.myapplication.widget.AutoVerticalScrollTextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressbar"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

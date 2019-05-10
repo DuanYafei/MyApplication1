@@ -1,0 +1,121 @@
+package com.example.changba131.myapplication.widget;
+
+import android.content.Context;
+import android.graphics.Camera;
+import android.graphics.Matrix;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.view.Gravity;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Transformation;
+import android.widget.TextView;
+import android.widget.ViewSwitcher;
+
+import com.example.changba131.myapplication.R;
+
+/**
+ * @author duanyafei
+ */
+public class AutoVerticalScrollTextView extends ViewSwitcher implements ViewSwitcher.ViewFactory {
+
+    private Context mContext;
+
+    //mInUp,mOutUp分别构成向下翻页的进出动画
+    private Rotate3dAnimation mInUp;
+    private Rotate3dAnimation mOutUp;
+
+    public AutoVerticalScrollTextView(Context context) {
+        this(context, null);
+    }
+
+    public AutoVerticalScrollTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mContext = context;
+        init();
+    }
+
+    private void init() {
+
+        setFactory(this);
+
+        mInUp = createAnim(true, true);
+        mOutUp = createAnim(false, true);
+
+        setInAnimation(mInUp);//当View显示时动画资源ID
+        setOutAnimation(mOutUp);//当View隐藏是动画资源ID。
+
+    }
+
+    private Rotate3dAnimation createAnim(boolean turnIn, boolean turnUp) {
+        Rotate3dAnimation rotation = new Rotate3dAnimation(turnIn, turnUp);
+        rotation.setDuration(1000);//执行动画的时间
+        rotation.setInterpolator(new DecelerateInterpolator());//设置加速模式
+        return rotation;
+    }
+
+    //这里返回的TextView，就是我们看到的View,可以设置自己想要的效果
+    @Override
+    public View makeView() {
+        TextView textView = new TextView(mContext);
+        textView.setGravity(Gravity.LEFT);
+        textView.setTextSize(14);
+        textView.setSingleLine(true);
+        textView.setGravity(Gravity.CENTER_VERTICAL);
+        textView.setEllipsize(TextUtils.TruncateAt.END);
+        textView.setTextColor(getResources().getColor(R.color.colorAccent));
+        return textView;
+    }
+
+
+    public void setText(CharSequence text) {
+        final TextView t = (TextView) getNextView();
+        t.setText(text);
+        showNext();
+    }
+
+    class Rotate3dAnimation extends Animation {
+        private float mCenterX;
+        private float mCenterY;
+        private final boolean mTurnIn;
+        private final boolean mTurnUp;
+        private Camera mCamera;
+
+        public Rotate3dAnimation(boolean turnIn, boolean turnUp) {
+            mTurnIn = turnIn;
+            mTurnUp = turnUp;
+        }
+
+        @Override
+        public void initialize(int width, int height, int parentWidth, int parentHeight) {
+            super.initialize(width, height, parentWidth, parentHeight);
+            mCamera = new Camera();
+            mCenterY = getHeight();
+            mCenterX = getWidth();
+        }
+
+        @Override
+        protected void applyTransformation(float interpolatedTime, Transformation t) {
+
+            final float centerX = mCenterX;
+            final float centerY = mCenterY;
+            final Camera camera = mCamera;
+            final int derection = mTurnUp ? 1 : -1;
+
+            final Matrix matrix = t.getMatrix();
+
+            camera.save();
+            if (mTurnIn) {
+                camera.translate(0.0f, derection * mCenterY * (interpolatedTime - 1.0f), 0.0f);
+            } else {
+                camera.translate(0.0f, derection * mCenterY * (interpolatedTime), 0.0f);
+            }
+            camera.getMatrix(matrix);
+            camera.restore();
+
+            matrix.preTranslate(-centerX, -centerY);
+            matrix.postTranslate(centerX, centerY);
+        }
+    }
+}
