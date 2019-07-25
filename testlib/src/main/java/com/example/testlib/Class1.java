@@ -11,7 +11,6 @@ public class Class1 {
         return str;
     }
   
-    
     public void setStr(String str) {
         this.str = str;
     }
