@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.changba131.myapplication">
+<manifest package="com.example.changba131.myapplication"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
-    <permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+    <permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.mystyles">
-        <activity android:name=".MainActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:exported="true"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Base">
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:supportsRtl="true"
+      android:theme="@style/Theme.mystyles"
+      tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".flutter.FlutterTestActivity">
+        </activity>
+        <activity
+          android:name=".MainActivity"
+          android:configChanges="keyboardHidden|orientation"
+          android:exported="true"
+          android:hardwareAccelerated="true"
+          android:launchMode="singleTask"
+          android:screenOrientation="portrait"
+          android:theme="@style/AppTheme.Base">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-
-        <activity android:name=".NoAnimationActivity"
-            android:theme="@style/NoAnimationTheme"/>
+        <activity
+          android:name=".NoAnimationActivity"
+          android:theme="@style/NoAnimationTheme"/>
     </application>
 
 </manifest>

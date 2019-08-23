@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.changba131.myapplication.flutter.FlutterTestActivity;
 import com.example.changba131.myapplication.widget.AutoVerticalScrollTextView;
 import com.example.changba131.myapplication.widget.KtvChallengeProgressBar;
 
@@ -68,6 +69,15 @@ public class MainActivity extends Activity {
                 handler.postDelayed(this, 5000);
             }
         });
+
+
+      findViewById(R.id.flutter).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          FlutterTestActivity.show(MainActivity.this);
+        }
+      });
+
 
     }
 }
