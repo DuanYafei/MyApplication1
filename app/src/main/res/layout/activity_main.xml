@@ -5,7 +5,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="@color/colorPrimary"
-  tools:context=".MainActivity">
+  tools:context=".MyHomeActivity">
 
     <com.example.changba131.myapplication.widget.KtvChallengeProgressBar
       android:id="@+id/progressbar"
@@ -87,5 +87,9 @@
       android:text="Flutter"
       android:textColor="#000000"
       android:textSize="16sp"/>
+
+  <com.example.changba131.myapplication.widget.RoundCornerFrameLayout
+    android:layout_width="100dp"
+    android:layout_height="100dp"/>
 
 </RelativeLayout>

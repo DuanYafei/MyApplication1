@@ -1,1 +1,1 @@
-include ':app', ':testlib'
+include ':app', ':testlib', ':my_anotation', ':my_anotation_processor', ':my_anotation_processors'

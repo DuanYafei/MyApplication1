@@ -14,10 +14,12 @@
       android:supportsRtl="true"
       android:theme="@style/Theme.mystyles"
       tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".TestImageActivity">
+        </activity>
         <activity android:name=".flutter.FlutterTestActivity">
         </activity>
         <activity
-          android:name=".MainActivity"
+          android:name=".MyHomeActivity"
           android:configChanges="keyboardHidden|orientation"
           android:exported="true"
           android:hardwareAccelerated="true"

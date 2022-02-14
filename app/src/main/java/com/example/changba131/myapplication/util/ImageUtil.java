@@ -36,6 +36,15 @@ public class ImageUtil {
         return bitmap;
     }
 
+  public static Bitmap drawableToBitmap(Drawable drawable,int width,int height) {
+    Bitmap bitmap = Bitmap.createBitmap(width, height, drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+      : Bitmap.Config.RGB_565);
+    Canvas canvas = new Canvas(bitmap);
+    drawable.setBounds(0, 0, width, height);
+    drawable.draw(canvas);
+    return bitmap;
+  }
+
     public static BitmapDrawable byteArrayToDrawable(byte[] image) {
         BitmapFactory.Options opts = new BitmapFactory.Options();
         Bitmap bmp = BitmapFactory.decodeByteArray(image, 0, image.length, opts);
